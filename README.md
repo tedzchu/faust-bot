@@ -37,6 +37,7 @@ These are steps for a Windows machine, so some of the Python commands will diffe
 - Move images to database and populate move data that way
 - Properly implement command grabs (⬆️) and left-rights (➡️)
 - Clean up main file so it doesn't make me sad, but that would require thinking a lot about Python on a weekend
+- Images must be named `SPOILER_name.png` in order to blur. It seems that Discord doesn't support bots for posting spoilers natively, so this is a hack for now.
 
 ## Screenshots
 
