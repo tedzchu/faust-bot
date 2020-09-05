@@ -56,7 +56,8 @@ async def results(channel, message_id, move_name, move_block):
 @tasks.loop(hours=24.0)
 async def what_could_this_be():
     await client.wait_until_ready()
-    channel = client.get_channel(298331347322404864)
+    channel_id = "don't doxx me"
+    channel = client.get_channel(channel_id)
     move = Move.list[randint(0, len(Move.list) - 1)]
     bot_message = await channel.send(file=discord.File(move.path))
     await channel.send(
