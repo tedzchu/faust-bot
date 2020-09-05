@@ -53,7 +53,7 @@ async def results(channel, message_id, move_name, move_block):
     await channel.send(message)
 
 
-@tasks.loop(seconds=20.0)
+@tasks.loop(hours=24.0)
 async def what_could_this_be():
     await client.wait_until_ready()
     channel = client.get_channel(298331347322404864)
@@ -64,7 +64,7 @@ async def what_could_this_be():
     )
     await bot_message.add_reaction("⬅")
     await bot_message.add_reaction("↙")
-    sleep(7.0)
+    sleep(3600.0)
     await results(channel, bot_message.id, move.name, move.block)
 
 
