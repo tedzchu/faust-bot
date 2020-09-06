@@ -11,6 +11,12 @@ def read_token():
         return lines[0].strip()
 
 
+def read_channel():
+    with open("token.txt", "r") as f:
+        lines = f.readlines()
+        return lines[1].strip()
+
+
 token = read_token()
 
 client = discord.Client()
@@ -56,7 +62,7 @@ async def results(channel, message_id, move_name, move_block):
 @tasks.loop(hours=24.0)
 async def what_could_this_be():
     await client.wait_until_ready()
-    channel_id = "don't doxx me"
+    channel_id = int(read_channel())
     channel = client.get_channel(channel_id)
     move = Move.list[randint(0, len(Move.list) - 1)]
     bot_message = await channel.send(file=discord.File(move.path))
